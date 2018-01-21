@@ -1,0 +1,68 @@
+<br>
+<div class="app-table">
+    <mat-form-field>
+        <mat-select placeholder="choose search type" [(ngModel)]="searchBy" name="searchBy"
+                    (ngModelChange)="selectSearch(searchBy)"
+                    required>
+            <mat-option *ngFor="let row of searchHeaders" [value]="row.value">
+                {{ row.key }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field [matTooltip]="searchBy == undefined ? 'Please Select Search Type':''">
+        <input matInput placeholder="Search here..." value="" #search [disabled]="searchBy == undefined"
+               (keyup)="searchData($event.target.value)">
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <mat-form-field>
+        <mat-select placeholder="choose sort type" [(ngModel)]="sortOrder" name="sortOrder"
+                    (ngModelChange)="selectSort(sortOrder)"
+                    required>
+            <mat-option *ngFor="let row of resHeaders" [value]="row">
+                {{ row }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <span class="sort">
+    <mat-icon (click)="sortItemDesc(row)" *ngIf="sortBool === false"
+              matTooltip="sort ascending">arrow_upward</mat-icon>
+    <mat-icon (click)="sortItemAsc(row)" *ngIf="sortBool === true"
+              matTooltip="sort descending">arrow_downward</mat-icon>
+    </span>
+</div>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th *ngFor="let row of resHeaders" style="padding: 5px;">
+            <div class="flex column">
+                <span class="title">{{row}}<mat-icon (click)="sortItemDesc(row)" *ngIf="sortBool === false"
+                                                     matTooltip="sort ascending">arrow_drop_up</mat-icon>
+                    <mat-icon (click)="sortItemAsc(row)" *ngIf="sortBool === true" matTooltip="sort descending">arrow_drop_down</mat-icon></span>
+            </div>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let d of data">
+        <td>{{d?.state}}</td>
+        <td>{{d?.number}}</td>
+        <td>{{d?.title}}</td>
+        <td>{{getUser(d?.user)}}</td>
+        <td>{{d?.html_url}}</td>
+        <td>{{displayTime(d?.updated_at)}}</td>
+        <td *ngIf="dataNotFound == ''">{{dataNotFound}}</td>
+    </tr>
+    </tbody>
+</table>
+<br><br>
+<div>
+    <button mat-raised-button (click)="fetchPreviousPage()" style="margin-left: 50%" *ngIf="pageNo !== 1">Previous
+    </button>
+    {{pageNo}} / {{ allPageNo }}
+    <button mat-raised-button (click)="fetchNextPage()" style="margin-left: 50%" *ngIf="pageNo !== allPageNo">
+        Next
+    </button>
+</div>

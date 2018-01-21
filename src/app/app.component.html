@@ -1,0 +1,33 @@
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+            <span>Github Issue Tracker with Angular Material</span>
+
+            <!-- Filler that pushes the menu button to the end of the toolbar -->
+            <span fxFlex></span>
+
+            <button mat-icon-button [matMenuTriggerFor]="themeMenu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+    <mat-menu #themeMenu x-position="before">
+        <button mat-menu-item (click)="isDarkTheme = !isDarkTheme">Toggle Theme</button>
+    </mat-menu>
+    <app-form *ngIf="routeChange == false"></app-form>
+    <!--<app-table *ngIf="routeChange == true"></app-table>-->
+    <app-feature-table *ngIf="routeChange == true"></app-feature-table>
+    <hr>
+    <button mat-fab [routerLink]="['/add']" (click)="addButton()" mat-tooltip="new" matTooltipPosition="left" class="fab-top-right">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<div class="flex column center middle loading" *ngIf="isLoading">
+    <mat-spinner color="#2196f3" style="margin-left: 50%; margin-top: 20%">
+        <div id="cssload-tag" style="margin-top: 36px; font-weight: 200;">
+            <span class="tag">Please</span><span class="tag">&nbsp;</span><span class="tag">Wait</span>
+        </div>
+    </mat-spinner>
+</div>

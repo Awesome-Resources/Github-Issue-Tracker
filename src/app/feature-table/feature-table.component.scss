@@ -1,0 +1,34 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+
+.nextPage {
+  margin-left: 50%;
+  margin-right: 42%;
+  padding: 3px 3px 3px 0px;
+}
+
+.pagination {
+  margin-top: -50px;
+}
+
+.notFound {
+  margin: 23% 22% 0% 34%;
+}

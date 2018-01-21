@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  flex: 1;
+}
+
+mat-sidenav {
+  width: 320px;
+}
+
+.content {
+  padding: 12px;
+}
+
+/deep/ mat-icon.avatar {
+  overflow: hidden;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 12px;
+}
+
+.fab-top-right {
+  position: fixed;
+  right: 16px;
+  top: 67px;
+}
+
+/deep/ .mat-list-item-content {
+  height: auto !important;
+}
+
+.loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 250, 256, 0.6);
+  z-index: 1000;
+}

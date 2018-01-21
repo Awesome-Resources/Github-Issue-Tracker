@@ -1,0 +1,33 @@
+<mat-vertical-stepper [linear]="true" style="margin-left: 35%">
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup" novalidate (ngSubmit)="getOrgName()">
+            <ng-template matStepLabel>Fill out Organization name</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Organization name" formControlName="orgName" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup" novalidate (ngSubmit)="getRepoName()">
+            <ng-template matStepLabel>Fill out Repository Name</ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Repository Name" formControlName="repoName" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div style="margin-top: 20px;">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button mat-raised-button (click)="submitData()">Submit</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper>

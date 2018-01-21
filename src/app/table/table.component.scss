@@ -1,0 +1,50 @@
+.app-table {
+  margin-left: 20%;
+
+  .sort {
+    margin-top: 30px;
+    cursor: pointer;
+  }
+
+  [disabled] {
+    cursor: not-allowed;
+  }
+}
+
+table {
+  width: 96%;
+  border-collapse: collapse;
+
+  th {
+    font-size: 11pt;
+    font-weight: 400;
+    color: #424242;
+    padding: 0 0 12px;
+    border-bottom: 1px solid #E0E0E0;
+
+    .subtitle {
+      padding: 8px 0 0;
+      font-size: 8.6pt;
+      font-weight: 300;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background 400ms ease;
+
+      td {
+        text-align: center;
+        font-size: 10pt;
+        font-weight: 300;
+        color: #616161;
+        padding: 10px 0;
+        border-bottom: 1px solid #E0E0E0;
+      }
+
+      &:hover {
+        background: #FAFAFA;
+      }
+    }
+  }
+}
