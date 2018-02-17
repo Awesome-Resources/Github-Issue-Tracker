@@ -1,7 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from "@angular/router";
-import {HttpModule} from "@angular/http";
 import {FormsModule, FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -53,7 +52,6 @@ import {FeatureTableComponent} from "./feature-table/feature-table.component";
     imports : [
         BrowserModule,
         FormsModule,
-        HttpModule,
         RouterModule,
         ReactiveFormsModule,
         HttpClientModule,
@@ -74,13 +72,11 @@ import {FeatureTableComponent} from "./feature-table/feature-table.component";
         MatTabsModule,
         MatToolbarModule,
         MatStepperModule,
-        MatButtonModule,
         MatTooltipModule,
         MatProgressSpinnerModule,
         MatTableModule,
         MatSortModule,
         MatPaginatorModule,
-
         // Flex-layout
         FlexLayoutModule,
 

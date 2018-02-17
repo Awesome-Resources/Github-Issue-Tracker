@@ -40,7 +40,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;">
         </mat-row>
     </mat-table>
-    <div>
+    <div class="btn">
         <button mat-raised-button (click)="fetchNextPage()" class="nextPage"
                 mat-tooltip="fetch more data, Github fetches only 30 data points in one api call"
                 matTooltipPosition="above">
